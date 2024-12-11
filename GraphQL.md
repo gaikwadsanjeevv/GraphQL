@@ -154,4 +154,119 @@ server.listen().then(()=>{
 //its starting the server to listen and then  printing the msg- u can also put url where api is running.
 ```
 --> make a folder index.js and make file type-def.js and resolvers.js into it  
+The codes for the files are as follows:  
+```package.json
+{
+  "name": "1graphqldemo",
+  "version": "1.0.0",
+  "description": "Demonstration of GraphQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodeman index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.13.0",
+    "graphql": "^16.9.0",
+    "nodemon": "^3.1.7"
+  }
+}
+
+```
+index.js
+```index.js
+const { ApolloServer } = require("apollo-server");
+const { typeDefs } = require("./schema/type-defs");
+const { resolvers } = require("./schema/resolvers");
+
+const server = new ApolloServer({ typeDefs, resolvers });
+
+// Start the server and print the URL where it's running
+server.listen().then(({ url }) => {
+    console.log(`YOUR API IS RUNNING AT: ${url} :)`);
+});
+//its starting the server to listen and then  printing the msg- u can also put url where api is running.
+```
+resolvers.js
+```resolvers.js
+
+const {UserList} = require("../FakeData");
+const resolvers = { //this object will contain all the resolvers functions that will exists inside oru API, all functions making calls to data base, what returing to frontend etc
+
+    Query: {
+        users() {
+
+                
+            return UserList;
+        },
+    },
+};
+
+module.exports = {resolvers};
+```
+type-defs.js
+```type-defs.js
+const { gql } = require("apollo-server"); // Importing the gql template literal
+
+const typeDefs = gql`
+type User {
+    id: ID!
+    name: String!
+    username: String!
+    age: Int!
+    nationality: String!
+}
+
+type Query { # Every schema starts with one specific type called Query which will hold all queries we want to make inside our API.
+    users: [User!]!
+}
+`;
+
+module.exports = { typeDefs };
+
+```
+Data.js
+```data.js
+ const UserList = [
+
+    
+        { id: 1, name: "Alice Johnson", username: "alicej", age: 25, nationality: "American" },
+        { id: 2, name: "Bob Smith", username: "bobsmith", age: 30, nationality: "Canadian" },
+        { id: 3, name: "Charlie Brown", username: "charlieb", age: 27, nationality: "British" },
+        { id: 4, name: "Diana Prince", username: "dianap", age: 29, nationality: "Australian" },
+        { id: 5, name: "Evan Thomas", username: "evant", age: 35, nationality: "German" },
+        { id: 6, name: "Fiona Davis", username: "fionad", age: 24, nationality: "Irish" },
+        { id: 7, name: "George Miller", username: "georgem", age: 33, nationality: "American" },
+        { id: 8, name: "Hannah Lee", username: "hannahl", age: 28, nationality: "South Korean" },
+        { id: 9, name: "Ian Carter", username: "ianc", age: 31, nationality: "New Zealander" },
+        { id: 10, name: "Jessica Wong", username: "jessicaw", age: 22, nationality: "Chinese" },
+        { id: 11, name: "Kevin White", username: "kevinw", age: 26, nationality: "South African" },
+        { id: 12, name: "Laura Green", username: "laurag", age: 32, nationality: "French" },
+        { id: 13, name: "Michael Brown", username: "michaelb", age: 37, nationality: "Indian" },
+        { id: 14, name: "Nina Patel", username: "ninap", age: 25, nationality: "Indian" },
+        { id: 15, name: "Oscar Diaz", username: "oscard", age: 34, nationality: "Mexican" },
+        { id: 16, name: "Paula Baker", username: "paulab", age: 29, nationality: "Canadian" },
+        { id: 17, name: "Quincy Adams", username: "quincya", age: 40, nationality: "American" },
+        { id: 18, name: "Rachel Kim", username: "rachelk", age: 23, nationality: "South Korean" },
+        { id: 19, name: "Samuel Johnson", username: "samuelj", age: 36, nationality: "Australian" },
+        { id: 20, name: "Tina Hernandez", username: "tinah", age: 27, nationality: "Spanish" },
+        { id: 21, name: "Uma Gupta", username: "umag", age: 21, nationality: "Indian" },
+        { id: 22, name: "Victor Cruz", username: "victorc", age: 39, nationality: "Brazilian" },
+        { id: 23, name: "Wendy Nelson", username: "wendyn", age: 26, nationality: "British" },
+        { id: 24, name: "Xander Black", username: "xanderb", age: 28, nationality: "American" },
+        { id: 25, name: "Yasmin Ali", username: "yasmina", age: 34, nationality: "Egyptian" },
+        { id: 26, name: "Zachary King", username: "zacharyk", age: 30, nationality: "Canadian" },
+        { id: 27, name: "Aaron Carter", username: "aaronc", age: 23, nationality: "New Zealander" },
+        { id: 28, name: "Betty Liu", username: "bettyl", age: 35, nationality: "Taiwanese" },
+        { id: 29, name: "Carlos Silva", username: "carloss", age: 31, nationality: "Portuguese" },
+        { id: 30, name: "Daisy Cooper", username: "daisyc", age: 24, nationality: "American" }
+];
+
+module.exports = {UserList};
+```
+> Now run the project:  node index.js you get an local host and following graphQL page:
+![image](https://github.com/user-attachments/assets/eeeddde9-4f39-4adf-8400-bad1b75fd9f9)
+> 
 
