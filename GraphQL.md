@@ -160,6 +160,7 @@ server.listen().then(()=>{
 ```
 --> make a folder schema and make file type-def.js and resolvers.js into it  
 The codes for the files are as follows:  
+#### Package.json
 ```package.json
 {
   "name": "1graphqldemo",
@@ -168,7 +169,7 @@ The codes for the files are as follows:
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodeman index.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
