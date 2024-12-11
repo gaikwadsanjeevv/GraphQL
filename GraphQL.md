@@ -158,7 +158,7 @@ server.listen().then(()=>{
 })
 //its starting the server to listen and then  printing the msg- u can also put url where api is running.
 ```
---> make a folder index.js and make file type-def.js and resolvers.js into it  
+--> make a folder schema and make file type-def.js and resolvers.js into it  
 The codes for the files are as follows:  
 ```package.json
 {
