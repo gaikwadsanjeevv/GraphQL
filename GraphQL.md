@@ -268,5 +268,8 @@ module.exports = {UserList};
 ```
 > Now run the project:  node index.js you get an local host and following graphQL page:
 ![image](https://github.com/user-attachments/assets/eeeddde9-4f39-4adf-8400-bad1b75fd9f9)
-> 
+
+Fllowing is the query request and response:  
+![image](https://github.com/user-attachments/assets/9b20eb04-39d2-40b5-ad62-796d33d808dc)  
+
 
