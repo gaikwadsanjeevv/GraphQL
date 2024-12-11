@@ -123,7 +123,12 @@ Simplifies development tasks through scripts.
 Acts as a manifest for your project, defining its purpose and structure.  
 
 
-#### Now install apollo server library - help to create the API and graphQL package 
+#### Now install apollo server library - help to create the API and graphQL package
+```installation Commands
+npm init
+npm install apollo-server graphql
+npm install nodemon
+```
 > npm install apollo-server graphql
 //we need to install Nodemon which automatically restarts the Node.js server whenever it detects changes in your code files.
 This is particularly useful during GraphQL API development, where you frequently update schemas, resolvers, or configurations.
