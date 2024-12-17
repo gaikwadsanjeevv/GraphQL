@@ -6,7 +6,9 @@
 ![image](https://github.com/user-attachments/assets/5609d8c5-daf9-4582-9fda-7055fdd0a5a0)
 
 Here we see getting data from API is query and once we get it everything we do with data like put, delete, post is mutating with data.  
-#### Difference betweent GQL and REST
+#### Difference betweent GQL and REST  
+<img width="552" alt="image" src="https://github.com/user-attachments/assets/5b1c3caf-8f58-4c9a-9915-e2818051dcce" />  
+
 Data Retrieval  
 GraphQL:  
 Clients specify exactly what data they need.  
